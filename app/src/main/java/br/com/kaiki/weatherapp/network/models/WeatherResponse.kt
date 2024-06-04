@@ -1,4 +1,4 @@
-package br.com.kaiki.weatherapp.network
+package br.com.kaiki.weatherapp.network.models
 
 import br.com.kaiki.weatherapp.ui.viewmodels.HomeScreenUiState
 import com.google.gson.annotations.SerializedName

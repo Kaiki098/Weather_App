@@ -1,5 +1,6 @@
 package br.com.kaiki.weatherapp.network
 
+import br.com.kaiki.weatherapp.network.services.WeatherService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

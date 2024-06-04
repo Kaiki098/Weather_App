@@ -1,5 +1,6 @@
-package br.com.kaiki.weatherapp.network
+package br.com.kaiki.weatherapp.network.services
 
+import br.com.kaiki.weatherapp.network.models.WeatherResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

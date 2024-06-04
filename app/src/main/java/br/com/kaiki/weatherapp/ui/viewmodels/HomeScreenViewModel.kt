@@ -3,7 +3,8 @@ package br.com.kaiki.weatherapp.ui.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.kaiki.weatherapp.network.WeatherRepository
+import br.com.kaiki.weatherapp.models.LocationData
+import br.com.kaiki.weatherapp.network.repositories.WeatherRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,6 +26,13 @@ class HomeScreenViewModel(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(HomeScreenUiState())
     val uiState: StateFlow<HomeScreenUiState> = _uiState.asStateFlow()
+
+    private val _location = MutableStateFlow<LocationData?>(null)
+    val location: StateFlow<LocationData?> = _location
+
+    fun updateLocation(newLocation: LocationData) {
+        _location.value = newLocation
+    }
 
     fun loadLocationWeather(latitude: String, longitude: String) {
         viewModelScope.launch {

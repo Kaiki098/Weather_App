@@ -1,6 +1,9 @@
-package br.com.kaiki.weatherapp.network
+package br.com.kaiki.weatherapp.network.repositories
 
 import android.util.Log
+import br.com.kaiki.weatherapp.network.RetrofitInt
+import br.com.kaiki.weatherapp.network.services.WeatherService
+import br.com.kaiki.weatherapp.network.models.toHomeScreenUiState
 import br.com.kaiki.weatherapp.ui.viewmodels.HomeScreenUiState
 
 class WeatherRepository (
