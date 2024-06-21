@@ -1,6 +1,5 @@
 package br.com.kaiki.weatherapp.network.models
 
-import br.com.kaiki.weatherapp.ui.viewmodels.HomeScreenUiState
 import com.google.gson.annotations.SerializedName
 
 data class WeatherResponse(
@@ -22,11 +21,5 @@ data class CurrentWeather (
     val isDay: Int
 )
 
-fun WeatherResponse.toHomeScreenUiState() = HomeScreenUiState(
-    temperature = current.temperature.toString(),
-    humidity = current.humidity.toString(),
-    apparentTemperature = current.apparentTemperature.toString(),
-    windSpeed = current.windSpeed.toString(),
-    weather = current.weather.toString(),
-    isDay = current.isDay != 0
-)
+
+

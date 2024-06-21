@@ -7,7 +7,10 @@ import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import br.com.kaiki.weatherapp.MainActivity
 import br.com.kaiki.weatherapp.models.LocationData
 import br.com.kaiki.weatherapp.ui.viewmodels.HomeScreenViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -56,6 +59,30 @@ class LocationUtils(val context: Context) {
             "${addresses[0].subAdminArea} - ${addresses[0].adminArea ?: ""}, ${addresses[0].countryName}"
         } else {
             "Address not found"
+        }
+    }
+
+    fun showLocationPermissionRequiredMessage(context: Context) {
+        val rationaleRequired = ActivityCompat.shouldShowRequestPermissionRationale(
+            context as MainActivity,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) || ActivityCompat.shouldShowRequestPermissionRationale(
+            context,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        )
+
+        if (rationaleRequired) {
+            Toast.makeText(
+                context,
+                "Location Permission is required for this feature to work",
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
+            Toast.makeText(
+                context,
+                "Location Permission is required. Please enable it in the Android Settings ",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 

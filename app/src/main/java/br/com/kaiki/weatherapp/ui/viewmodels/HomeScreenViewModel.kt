@@ -11,18 +11,18 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 data class HomeScreenUiState(
-    val temperature: String = "Not found",
+    val temperature: String? = null,
     val humidity: String = "Not found",
     val apparentTemperature: String = "Not found",
     val windSpeed: String = "Not found",
-    val weather: String = "Not found",
+    val weatherImage: Int? = null,
     val isDay: Boolean = true,
     var isLoading: Boolean = true,
     var errorDescription: String? = null
 )
 
 class HomeScreenViewModel(
-    private val repository: WeatherRepository = WeatherRepository()
+    private val repository: WeatherRepository
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(HomeScreenUiState())
     val uiState: StateFlow<HomeScreenUiState> = _uiState.asStateFlow()
@@ -45,5 +45,4 @@ class HomeScreenViewModel(
             }
         }
     }
-
 }
